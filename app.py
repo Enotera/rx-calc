@@ -1,4 +1,5 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, send_from_directory
+import os
 
 app = Flask(__name__)
 
@@ -10,6 +11,9 @@ def index():
 def quitting():
     return render_template('quitting.html')
 
+@app.route('/manifest.json')
+def manifest():
+    return send_from_directory(os.path.join(app.root_path, 'static'), 'manifest.json')
 
 if __name__ == '__main__':
     app.run(debug=True)
