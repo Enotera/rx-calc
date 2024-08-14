@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}戒菸回診計算 - BoaiRx Calc{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-10">
+        <h1 class="mb-3"><i class="bi bi-lungs"></i> 戒菸回診計算</h1>
+        <p class="lead"><i class="bi bi-info-circle"></i> 預設今天為其中一次戒菸門診。</p>
+        <hr>
+        <div class="row">
+            <div class="col-md-6">
+                <h3><i class="bi bi-calendar-event"></i> 初診日期</h3>
+                <div id="pickyDate" class="mb-3"></div>
+                <input id="DATE" name="DATE" type="hidden">
+            </div>
+
+            <div class="col-md-6">
+                <h3><i class="bi bi-calendar-check"></i> 下次回診日期</h3>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="bi bi-calendar2-week"></i></span>
+                    </div>
+                    <input class="form-control form-control-lg" type="text" id="BACK_DAY" readonly>
+                </div>
+                <h3><i class="bi bi-calendar-check-fill"></i> 最後一次回診日期</h3>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="bi bi-calendar2-x"></i></span>
+                    </div>
+                    <input class="form-control form-control-lg" type="text" id="LAST_DAY" readonly>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/quitting.js') }}"></script>
+{% endblock %}

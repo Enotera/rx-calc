@@ -1,0 +1,14 @@
+.bi {
+    margin-right: 10px;
+    color: #007bff;
+}
+
+h3 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.btn-group-toggle {
+    margin-bottom: 20px;
+}

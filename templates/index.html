@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}領藥日期計算 - BoaiRx Calc{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-10">
+        <form class="form">
+            <h1 class="text-center mb-4">領藥日期計算</h1>
+            <hr>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h3><i class="bi bi-calendar-event"></i> 看診日</h3>
+                    <div id="pickyDate" class="mb-3"></div>
+                    <input id="DATE" name="DATE" type="hidden">
+
+                    <h3><i class="bi bi-capsule"></i> 給藥日份</h3>
+                    <div class="btn-group btn-group-toggle d-flex justify-content-center" data-toggle="buttons">
+                        <label class="btn btn-outline-primary btn-lg active">
+                            <input type="radio" name="DAYS" value="28" checked> 28
+                        </label>
+                        <label class="btn btn-outline-primary btn-lg">
+                            <input type="radio" name="DAYS" value="29"> 29
+                        </label>
+                        <label class="btn btn-outline-primary btn-lg">
+                            <input type="radio" name="DAYS" value="30"> 30
+                        </label>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <h3><i class="bi bi-clock"></i> 領藥時間</h3>
+                    <div class="form-group">
+                        <label for="Result1">第二次</label>
+                        <input class="form-control form-control-lg" type="text" id="Result1" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="Result2">第三次</label>
+                        <input class="form-control form-control-lg" type="text" id="Result2" readonly>
+                    </div>
+                    <h3><i class="bi bi-calendar-check"></i> 回診時間</h3>
+                    <div class="form-group">
+                        <input class="form-control form-control-lg" type="text" id="BACKTIME" readonly>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% endblock %}
