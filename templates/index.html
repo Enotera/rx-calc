@@ -5,8 +5,8 @@
 {% block content %}
 <div class="row justify-content-center">
     <div class="col-md-10">
-        <form class="form">
-            <h1 class="mb-3"><i class="bi bi-capsule"></i>領藥日期計算</h1>
+        <form id="calculatorForm">
+            <h1 class="text-center mb-4"><i class="bi bi-calculator"></i> 領藥日期計算</h1>
             <hr>
 
             <div class="row">
@@ -51,5 +51,5 @@
 {% endblock %}
 
 {% block extra_js %}
-<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script src="{{ url_for('static', filename='js/offline-calculator.js') }}"></script>
 {% endblock %}

@@ -5,7 +5,7 @@
 {% block content %}
 <div class="row justify-content-center">
     <div class="col-md-10">
-        <h1 class="mb-3"><i class="bi bi-lungs"></i> 戒菸回診計算</h1>
+        <h1 class="mb-3"><i class="bi bi-clipboard2-pulse"></i> 戒菸回診計算</h1>
         <p class="lead"><i class="bi bi-info-circle"></i> 預設今天為其中一次戒菸門診。</p>
         <hr>
         <div class="row">
@@ -37,5 +37,5 @@
 {% endblock %}
 
 {% block extra_js %}
-<script src="{{ url_for('static', filename='js/quitting.js') }}"></script>
+<script src="{{ url_for('static', filename='js/quitting-offline.js') }}"></script>
 {% endblock %}
