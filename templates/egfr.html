@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}eGFR 計算 - BoaiRx Calc{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow">
+            <div class="card-body">
+                <h1 class="card-title text-center mb-4"><i class="bi bi-calculator"></i> eGFR 計算器 (MDRD公式)</h1>
+                <form id="egfrForm">
+                    <div class="form-group mb-3">
+                        <label for="creatinine">血清肌酸酐 (mg/dL)</label>
+                        <input type="number" class="form-control" id="creatinine" step="0.01" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="age">年齡</label>
+                        <input type="number" class="form-control" id="age" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label>性別</label>
+                        <div class="btn-group d-flex" role="group" id="genderButtons">
+                            <button type="button" class="btn btn-outline-primary" data-gender="male">男性</button>
+                            <button type="button" class="btn btn-outline-primary" data-gender="female">女性</button>
+                        </div>
+                        <input type="hidden" id="genderInput" name="gender" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block w-100">計算 eGFR</button>
+                </form>
+                <div id="result" class="mt-4 alert" style="display: none;">
+                    <div id="egfr-value" class="h4"></div>
+                    <div id="egfr-interpretation"></div>
+                </div>
+            </div>
+        </div>
+        <div class="card mt-4 shadow">
+            <div class="card-body">
+                <h5 class="card-title"><i class="bi bi-exclamation-triangle"></i> 免責聲明</h5>
+                <p class="card-text">本計算器僅供參考，不應用作診斷或治療決策的唯一依據。eGFR 的計算可能受多種因素影響，結果可能不適用於所有人群。請務必諮詢您的醫療保健提供者以獲取專業醫療建議和準確診斷。</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/egfr-calculator.js') }}"></script>
+{% endblock %}
