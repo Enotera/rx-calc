@@ -40,7 +40,7 @@ BoaiRx Calc是一個基於 Flask 的 Web 應用，包含慢性處方箋回診計
 
 ## 聯繫方式
 
-如有任何問題或建議，請通過 [GitHub Issues](https://github.com/your-username/rx-calc/issues) 與我們聯繫。
+如有任何問題或建議，請通過 [GitHub Issues](https://github.com/Enotera/rx-calc/issues) 與我們聯繫。
 
 ## 致謝
 
