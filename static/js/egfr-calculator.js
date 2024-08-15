@@ -15,6 +15,23 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    document.addEventListener('DOMContentLoaded', function() {
+        const creatinineInput = document.getElementById('creatinine');
+        const ageInput = document.getElementById('age');
+
+        creatinineInput.addEventListener('input', function() {
+            let value = parseFloat(this.value);
+            if (value < 0) this.value = 0;
+            if (value > 30) this.value = 30;
+        });
+
+        ageInput.addEventListener('input', function() {
+            let value = parseInt(this.value);
+            if (value < 0) this.value = 0;
+            if (value > 120) this.value = 120;
+        });
+    });
+
     form.addEventListener('submit', function(e) {
         e.preventDefault();
         
