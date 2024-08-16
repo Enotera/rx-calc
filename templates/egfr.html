@@ -10,12 +10,25 @@
                 <h1 class="card-title text-center mb-4"><i class="bi bi-calculator"></i> eGFR 計算器 (MDRD公式)</h1>
                 <form id="egfrForm">
                     <div class="form-group mb-3">
+                        <label for="calculationMethod">計算方法：</label>
+                        <select class="form-control" id="calculationMethod">
+                            <option value="mdrd">MDRD</option>
+                            <option value="ckd-epi">CKD-EPI</option>
+                            <option value="cg">Cockcroft-Gault (CG)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group mb-3">
                         <label for="creatinine">血清肌酸酐 Creatinine (mg/dL)</label>
                         <input type="number" class="form-control" id="creatinine" step="0.01" min="0" inputmode="decimal" required>
                     </div>
                     <div class="form-group mb-3">
                         <label for="age">年齡</label>
                         <input type="number" class="form-control" id="age" min="0" inputmode="numeric" required>
+                    </div>
+                    <div class="form-group mb-3" id="weightGroup" style="display: none;">
+                        <label for="weight">體重 (kg)</label>
+                        <input type="number" class="form-control" id="weight" step="0.1" min="0" max="500">
                     </div>
                     <div class="form-group mb-3">
                         <label>性別</label>
