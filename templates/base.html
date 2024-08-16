@@ -44,6 +44,10 @@
         </div>
     </nav>
 
+    <div id="loading-overlay">
+        <div class="spinner"></div>
+    </div>
+
     <div class="container mt-4">
         {% block content %}{% endblock %}
     </div>
@@ -70,6 +74,7 @@
             });
         }
     </script>
+    <script src="{{ url_for('static', filename='js/loading.js') }}"></script>
 </body>
 </html>
 
