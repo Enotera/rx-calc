@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}巡診XML轉換{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4">XML轉換器</h1>
+    <div class="form-group">
+        <label for="xmlInput">XML數據：</label>
+        <textarea id="xmlInput" class="form-control" rows="10" placeholder="在此粘貼XML數據"></textarea>
+    </div>
+    <button id="convertButton" class="btn btn-primary mb-3">轉換</button>
+    <h2>轉換結果：</h2>
+    <div class="form-group">
+        <textarea id="result" class="form-control" rows="5" readonly></textarea>
+    </div>
+    <button id="copyButton" class="btn btn-secondary">複製結果</button>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/xml_converter.js') }}"></script>
+{% endblock %}

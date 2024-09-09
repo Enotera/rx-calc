@@ -1,5 +1,6 @@
 from flask import Flask, render_template, send_from_directory
 import os
+import xml.etree.ElementTree as ET
 
 app = Flask(__name__)
 
@@ -19,6 +20,9 @@ def manifest():
 def egfr():
     return render_template('egfr.html')
 
+@app.route('/xml_converter')
+def xml_converter():
+    return render_template('xml_converter.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
