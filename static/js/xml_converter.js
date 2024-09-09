@@ -4,19 +4,23 @@ document.addEventListener('DOMContentLoaded', function() {
     const result = document.getElementById('result');
     const copyButton = document.getElementById('copyButton');
 
+    // 初始狀態下禁用複製按鈕
+    copyButton.disabled = true;
 
     convertButton.addEventListener('click', function() {
         const xmlData = xmlInput.value;
         try {
             const convertedString = convertXmlToString(xmlData);
-            result.textContent = convertedString;
+            result.value = convertedString;
+            copyButton.disabled = false;
         } catch (error) {
             console.error('Error:', error);
-            result.textContent = '轉換過程中發生錯誤：' + error.message;
+            result.value = '轉換過程中發生錯誤：' + error.message;
+            copyButton.disabled = true;
         }
     });
 
-        copyButton.addEventListener('click', function() {
+    copyButton.addEventListener('click', function() {
         result.select();
         document.execCommand('copy');
         showToast('結果已複製到剪貼板');

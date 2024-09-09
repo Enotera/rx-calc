@@ -1,20 +1,35 @@
 {% extends "base.html" %}
 
-{% block title %}巡診XML轉換{% endblock %}
+{% block title %}巡診XML轉換 - BoaiRx Calc{% endblock %}
 
 {% block content %}
-<div class="container mt-5">
-    <h1 class="mb-4">XML轉換器</h1>
-    <div class="form-group">
-        <label for="xmlInput">XML數據：</label>
-        <textarea id="xmlInput" class="form-control" rows="10" placeholder="在此粘貼XML數據"></textarea>
+<div class="row justify-content-center">
+    <div class="col-md-10">
+        <h1 class="mb-3"><i class="fas fa-file-code text-primary"></i> 巡診XML轉換</h1>
+        <p class="lead"><i class="bi bi-info-circle"></i> 將XML格式轉換為指定字串格式。</p>
+        <hr>
+        <div class="row">
+            <div class="col-md-6">
+                <h3><i class="fas fa-code text-secondary"></i> XML輸入</h3>
+                <div class="form-group">
+                    <textarea id="xmlInput" class="form-control" rows="10" placeholder="在此粘貼XML數據"></textarea>
+                </div>
+                <button id="convertButton" class="btn btn-primary btn-lg mt-3">
+                    <i class="fas fa-sync-alt text-white"></i> 轉換
+                </button>
+            </div>
+
+            <div class="col-md-6">
+                <h3><i class="fas fa-file-alt text-secondary"></i> 轉換結果</h3>
+                <div class="form-group">
+                    <textarea id="result" class="form-control" rows="10" readonly></textarea>
+                </div>
+                <button id="copyButton" class="btn btn-secondary btn-lg mt-3" disabled>
+                    <i class="far fa-copy text-white"></i> 複製結果
+                </button>
+            </div>
+        </div>
     </div>
-    <button id="convertButton" class="btn btn-primary mb-3">轉換</button>
-    <h2>轉換結果：</h2>
-    <div class="form-group">
-        <textarea id="result" class="form-control" rows="5" readonly></textarea>
-    </div>
-    <button id="copyButton" class="btn btn-secondary">複製結果</button>
 </div>
 {% endblock %}
 
