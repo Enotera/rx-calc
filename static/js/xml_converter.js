@@ -54,10 +54,10 @@ document.addEventListener('DOMContentLoaded', function() {
         output += `${continous_prescription ? continous_prescription.getAttribute('total') : ''};`;
         output += `${insurance.getAttribute('copayment_code')};`;
         output += diseases.join('#') + '#;';
-        output += `${case_elem.getAttribute('from')};;${orders[0].getAttribute('id')};`;
+        output += `${case_elem.getAttribute('from')};;`;
 
         for (let order of orders) {
-            output += `${order.getAttribute('divided_dose')};${order.getAttribute('freq')};`;
+            output += `${order.getAttribute('id')};${order.getAttribute('divided_dose')};${order.getAttribute('freq')};`;
             output += `${order.getAttribute('way')};${order.getAttribute('total_dose')};`;
         }
 
