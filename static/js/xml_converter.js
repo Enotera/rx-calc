@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 初始狀態下禁用複製按鈕
     copyButton.disabled = true;
 
-    convertButton.addEventListener('click', function() {
+    function convertXml() {
         const xmlData = xmlInput.value;
         try {
             const convertedString = convertXmlToString(xmlData);
@@ -17,6 +17,17 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Error:', error);
             result.value = '轉換過程中發生錯誤：' + error.message;
             copyButton.disabled = true;
+        }
+    }
+
+    // 點擊轉換按鈕時轉換
+    convertButton.addEventListener('click', convertXml);
+
+    // 在輸入區域按下 Enter 鍵時轉換（不包括 Shift + Enter）
+    xmlInput.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter' && !event.shiftKey) {
+            event.preventDefault(); // 防止換行
+            convertXml();
         }
     });
 
