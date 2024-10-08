@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const convertButton = document.getElementById('convertButton');
     const result = document.getElementById('result');
     const copyButton = document.getElementById('copyButton');
-
     // 初始狀態下禁用複製按鈕
     copyButton.disabled = true;
 
@@ -40,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
     function convertXmlToString(xmlData) {
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(xmlData, "text/xml");
-
         const case_elem = xmlDoc.documentElement;
         const person = xmlDoc.querySelector('person');
         const insurance = xmlDoc.querySelector('insurance');
@@ -48,7 +46,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const diseases = Array.from(xmlDoc.querySelectorAll('diseases item')).map(item => item.getAttribute('code'));
         const orders = xmlDoc.querySelectorAll('orders item');
         const continous_prescription = xmlDoc.querySelector('continous_prescription');
-
+        const ordersElement = xmlDoc.querySelector('orders');
+        
         // 確定處方類型
         let prescriptionType = '1'; // 默認為一般處方
         if (continous_prescription) {
@@ -62,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let output = `${case_elem.getAttribute('from')};${prescriptionType};${insurance.getAttribute('case_type')};${person.getAttribute('name')};`;
         output += `${person.getAttribute('id')};${person.getAttribute('birth')};${study.getAttribute('subject')};`;
         output += `${case_elem.getAttribute('date')};${insurance.getAttribute('serial_code')};`;
-        output += `${continous_prescription ? continous_prescription.getAttribute('total') : ''};`;
+        output += `${ordersElement ? ordersElement.getAttribute('days') : ''};`; // 使用 orders 的 days 屬性
         output += `${insurance.getAttribute('copayment_code')};`;
         output += diseases.join('#') + '#;';
         output += `${case_elem.getAttribute('from')};;`;
@@ -74,5 +73,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
         return output.slice(0, -1); // 移除最後一個分號
     }
-
 });
