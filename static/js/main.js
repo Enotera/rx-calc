@@ -21,14 +21,14 @@ $(document).ready(function () {
 
     // 複製按鈕事件處理
     $('#copyResult1Btn').on('click', function () {
-        copyToClipboard($('#Result1ROC').val(), $(this).find('i'));
+        copyToClipboard($('#Result1ROC').val(), $(this));
     });
 
     $('#copyResult2Btn').on('click', function () {
-        copyToClipboard($('#Result2ROC').val(), $(this).find('i'));
+        copyToClipboard($('#Result2ROC').val(), $(this));
     });
 
-    function copyToClipboard(text, icon) {
+    function copyToClipboard(text, button) {
         if (!text) return;
 
         // 建立一個臨時的textarea元素
@@ -37,27 +37,31 @@ $(document).ready(function () {
         document.body.appendChild(textarea);
         textarea.select();
 
+        const icon = button.find('i');
+
         try {
             // 執行複製命令
             document.execCommand('copy');
 
-            // 變更圖標為成功圖標
-            icon.removeClass('bi-copy').addClass('bi-check-lg copy-success');
+            // 變更按鈕和圖標樣式
+            button.addClass('success-state');
+            icon.removeClass('bi-copy').addClass('bi-check-lg');
 
             // 顯示提示
-            icon.parent().tooltip('dispose').attr('title', '已複製: ' + text).tooltip({
+            button.tooltip('dispose').attr('title', '已複製: ' + text).tooltip({
                 trigger: 'manual',
                 placement: 'top'
             }).tooltip('show');
 
-            // 2秒後恢復原始圖標
+            // 2秒後恢復原始樣式
             setTimeout(function () {
-                icon.parent().tooltip('hide');
-                icon.removeClass('bi-check-lg copy-success').addClass('bi-copy');
-                icon.parent().attr('title', '複製民國年月日').tooltip('dispose');
+                button.tooltip('hide');
+                button.removeClass('success-state');
+                icon.removeClass('bi-check-lg').addClass('bi-copy');
+                button.attr('title', '複製民國年月日').tooltip('dispose');
 
                 // 重新初始化tooltip
-                icon.parent().tooltip({
+                button.tooltip({
                     trigger: 'hover',
                     placement: 'top'
                 });
@@ -67,14 +71,14 @@ $(document).ready(function () {
             console.error('複製失敗:', err);
 
             // 顯示錯誤提示
-            icon.parent().tooltip('dispose').attr('title', '複製失敗').tooltip({
+            button.tooltip('dispose').attr('title', '複製失敗').tooltip({
                 trigger: 'manual',
                 placement: 'top'
             }).tooltip('show');
 
             setTimeout(function () {
-                icon.parent().tooltip('hide');
-                icon.parent().attr('title', '複製民國年月日').tooltip({
+                button.tooltip('hide');
+                button.attr('title', '複製民國年月日').tooltip({
                     trigger: 'hover',
                     placement: 'top'
                 });

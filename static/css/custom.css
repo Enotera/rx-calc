@@ -163,26 +163,42 @@ h3 {
     color: #28a745 !important;
 }
 
+/* 複製按鈕樣式 */
 .copy-btn {
     background-color: #f8f9fa;
-    border: 1px solid #ced4da;
+    border: 2px solid #ced4da;
     border-radius: 0 0.25rem 0.25rem 0;
     color: #6c757d;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
+    padding: 0.375rem 0.75rem;
 }
 
 .copy-btn:hover {
     background-color: #e9ecef;
-    color: #495057;
-    transform: translateY(-2px);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    color: #007bff;
+    border-color: #007bff;
+}
+
+.copy-btn:active, .copy-btn:focus {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
 .copy-btn i {
     font-size: 1.1rem;
+    margin-right: 0;
 }
 
 .copy-success {
     color: #28a745 !important;
+}
+
+/* 當按鈕處於成功狀態時 */
+.copy-btn.success-state {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: white;
 }
