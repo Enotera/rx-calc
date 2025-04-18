@@ -162,3 +162,27 @@ h3 {
 .text-success {
     color: #28a745 !important;
 }
+
+.copy-btn {
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    border-radius: 0 0.25rem 0.25rem 0;
+    color: #6c757d;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.copy-btn:hover {
+    background-color: #e9ecef;
+    color: #495057;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.copy-btn i {
+    font-size: 1.1rem;
+}
+
+.copy-success {
+    color: #28a745 !important;
+}

@@ -21,11 +21,11 @@ $(document).ready(function () {
 
     // 複製按鈕事件處理
     $('#copyResult1Btn').on('click', function () {
-        copyToClipboard($('#Result1ROC').val(), $(this));
+        copyToClipboard($('#Result1ROC').val(), $(this).find('i'));
     });
 
     $('#copyResult2Btn').on('click', function () {
-        copyToClipboard($('#Result2ROC').val(), $(this));
+        copyToClipboard($('#Result2ROC').val(), $(this).find('i'));
     });
 
     function copyToClipboard(text, icon) {
@@ -41,26 +41,23 @@ $(document).ready(function () {
             // 執行複製命令
             document.execCommand('copy');
 
-            // 保存原始圖標類別
-            const originalClass = icon.attr('class');
-
             // 變更圖標為成功圖標
-            icon.removeClass('bi-copy').addClass('bi-check text-success');
+            icon.removeClass('bi-copy').addClass('bi-check-lg copy-success');
 
-            // 建立 Bootstrap 的 tooltip
-            icon.tooltip('dispose').attr('title', '已複製: ' + text).tooltip({
+            // 顯示提示
+            icon.parent().tooltip('dispose').attr('title', '已複製: ' + text).tooltip({
                 trigger: 'manual',
                 placement: 'top'
             }).tooltip('show');
 
             // 2秒後恢復原始圖標
             setTimeout(function () {
-                icon.tooltip('hide');
-                icon.attr('class', originalClass);
-                icon.attr('title', '複製民國年月日').tooltip('dispose');
+                icon.parent().tooltip('hide');
+                icon.removeClass('bi-check-lg copy-success').addClass('bi-copy');
+                icon.parent().attr('title', '複製民國年月日').tooltip('dispose');
 
                 // 重新初始化tooltip
-                icon.tooltip({
+                icon.parent().tooltip({
                     trigger: 'hover',
                     placement: 'top'
                 });
@@ -70,14 +67,14 @@ $(document).ready(function () {
             console.error('複製失敗:', err);
 
             // 顯示錯誤提示
-            icon.tooltip('dispose').attr('title', '複製失敗').tooltip({
+            icon.parent().tooltip('dispose').attr('title', '複製失敗').tooltip({
                 trigger: 'manual',
                 placement: 'top'
             }).tooltip('show');
 
             setTimeout(function () {
-                icon.tooltip('hide');
-                icon.attr('title', '複製民國年月日').tooltip({
+                icon.parent().tooltip('hide');
+                icon.parent().attr('title', '複製民國年月日').tooltip({
                     trigger: 'hover',
                     placement: 'top'
                 });
