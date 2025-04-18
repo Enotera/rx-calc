@@ -149,3 +149,16 @@ h3 {
     border-color: #f5c6cb;
     color: #721c24;
 }
+
+.copy-icon {
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.copy-icon:hover {
+    color: #007bff;
+}
+
+.text-success {
+    color: #28a745 !important;
+}

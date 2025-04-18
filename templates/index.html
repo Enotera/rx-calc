@@ -33,11 +33,29 @@
                     <h3><i class="bi bi-clock"></i> 領藥時間</h3>
                     <div class="form-group">
                         <label for="Result1">第二次</label>
-                        <input class="form-control form-control-lg" type="text" id="Result1" readonly>
+                        <div class="input-group">
+                            <input class="form-control form-control-lg" type="text" id="Result1" readonly>
+                            <div class="input-group-append">
+                                <span class="input-group-text">
+                                    <i class="bi bi-clipboard copy-icon" id="copyResult1Btn" 
+                                       data-toggle="tooltip" title="複製民國年月日"></i>
+                                </span>
+                            </div>
+                            <input type="hidden" id="Result1ROC">
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="Result2">第三次</label>
-                        <input class="form-control form-control-lg" type="text" id="Result2" readonly>
+                        <div class="input-group">
+                            <input class="form-control form-control-lg" type="text" id="Result2" readonly>
+                            <div class="input-group-append">
+                                <span class="input-group-text">
+                                    <i class="bi bi-clipboard copy-icon" id="copyResult2Btn" 
+                                       data-toggle="tooltip" title="複製民國年月日"></i>
+                                </span>
+                            </div>
+                            <input type="hidden" id="Result2ROC">
+                        </div>
                     </div>
                     <h3><i class="bi bi-calendar-check"></i> 回診時間</h3>
                     <div class="form-group">
