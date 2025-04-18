@@ -45,7 +45,7 @@ $(document).ready(function () {
             const originalClass = icon.attr('class');
 
             // 變更圖標為成功圖標
-            icon.removeClass('bi-clipboard').addClass('bi-check text-success');
+            icon.removeClass('bi-copy').addClass('bi-check text-success');
 
             // 建立 Bootstrap 的 tooltip
             icon.tooltip('dispose').attr('title', '已複製: ' + text).tooltip({
