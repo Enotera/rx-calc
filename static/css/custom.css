@@ -175,25 +175,28 @@ h3 {
 }
 
 .copy-btn:hover {
-    background-color: #e9ecef;
-    color: #007bff;
-    border-color: #007bff;
-}
-
-.copy-btn:active, .copy-btn:focus {
     background-color: #007bff;
     color: white;
     border-color: #007bff;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.3);
+}
+
+.copy-btn:hover i {
+    color: white !important;
+}
+
+.copy-btn:active, .copy-btn:focus {
+    background-color: #0069d9;
+    color: white;
+    border-color: #0062cc;
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
 .copy-btn i {
     font-size: 1.1rem;
     margin-right: 0;
-}
-
-.copy-success {
-    color: #28a745 !important;
+    color: #6c757d;
 }
 
 /* 當按鈕處於成功狀態時 */
@@ -201,4 +204,12 @@ h3 {
     background-color: #28a745;
     border-color: #28a745;
     color: white;
+}
+
+.copy-btn.success-state i {
+    color: white !important;
+}
+
+.copy-success {
+    color: #28a745 !important;
 }
